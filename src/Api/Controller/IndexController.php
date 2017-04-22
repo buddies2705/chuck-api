@@ -46,7 +46,7 @@ class IndexController
             throw new ConfigException('FACEBOOK_JSSDK_VERSION');
         }
 
-        if (! ($joke = $app['chuck.joke']->random()) instanceof \Chuck\Entity\Joke) {
+        if (! ($joke = $app['cache_service']->getRandomJoke()) instanceof \Chuck\Entity\Joke) {
             throw new Exception\NotFoundHttpException('Could not retrieve random joke.');
         }
 
